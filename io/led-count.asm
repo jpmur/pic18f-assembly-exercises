@@ -13,7 +13,7 @@ DisplayVal	equ		0x02
 			org		0x0028			; Place the assembly code in memory here
 			
 Start:		
-            clrf	PORTA			; Clear PORTA file register
+			clrf	PORTA			; Clear PORTA file register
 			clrf	PORTB			; Clear PORTB file register
 
 			movlw	0xFF			; Set PORTA to be all inputs
@@ -22,14 +22,14 @@ Start:
 			movwf	TRISB			
 	
 WaitStart:	
-            btfsc	PORTA,4			; S2 pressed? 
+			btfsc	PORTA,4			; S2 pressed? 
 			goto 	WaitStart		; No, wait and check again
 			
 			movlw	0x00			; Yes, reset the count
 			movwf	DisplayVal		
 
 CountLoop:	
-            movf	DisplayVal,W	; Get the current display value
+			movf	DisplayVal,W	; Get the current display value
 			movwf	PORTB			; Output value on LEDs
 
 			call 	SoftDelay		; Delay to slow down the PIC
@@ -43,17 +43,17 @@ CountLoop:
 
 
 SoftDelay:	
-            clrf	DelayCount1		; Implements nested loops to slow down PIC
+			clrf	DelayCount1		; Implements nested loops to slow down PIC
 			movlw	0xC0
 			movwf	DelayCount2
 
 DelayLoop:	
-            decf	DelayCount1,F	; Outer Loop of Delay Loop
+			decf	DelayCount1,F	; Outer Loop of Delay Loop
 			bnz		SmallDelay
 			bra 	ExitDelay
 
 SmallDelay:	
-            decf	DelayCount2,F	; Inner Loop of Delay Loop
+			decf	DelayCount2,F	; Inner Loop of Delay Loop
 			bnz		SmallDelay
 			bra 	DelayLoop
 
