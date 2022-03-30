@@ -29,7 +29,7 @@ Main:		clrf		PORTB				; Config I/O port
 
 		bsf		T2CON,TMR2ON			; Turn on Timer2
 Idle:		bra		Idle				; Do nothing – in practice there would 
-										; be useful stuff here 		
+								; be useful stuff here 		
 
 Tmr2isr:	
             	btfss		PIR1,TMR2IF			; Is this interrupt from Timer 2? 
