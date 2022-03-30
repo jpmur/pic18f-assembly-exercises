@@ -35,7 +35,6 @@ Main:
 				
 Idle:	        bra		Idle			; repeat indefinitely
 
-;------------------------------------------------------------------------------------------
 
 ADCisr:	
                 btfss		PIR1,ADIF		; is interrupt from A/D unit?
@@ -48,7 +47,6 @@ ADCisr:
 
 XitIsr:	        retfie					; return to main prog
 
-;------------------------------------------------------------------------------------------
 
 Tacq:	        movlw		0x04			; set delay to allow for
 		movwf		DlyPar			; proper signal acquisition
@@ -57,5 +55,4 @@ Delay:
 		bra		Delay			; charge up fully before A/D conversion
 		return					; return to caller	
 			
-;==========================================================================================
 		END

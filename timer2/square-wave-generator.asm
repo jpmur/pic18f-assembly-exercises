@@ -30,7 +30,6 @@ Main:		clrf		PORTB				; Config I/O port
 		bsf		T2CON,TMR2ON			; Turn on Timer2
 Idle:		bra		Idle				; Do nothing – in practice there would 
 										; be useful stuff here 		
-;----------------------------------------------------------------------------------
 
 Tmr2isr:	
             	btfss		PIR1,TMR2IF			; Is this interrupt from Timer 2? 
@@ -38,7 +37,5 @@ Tmr2isr:
 		btg		PORTB,RB3			; Yes,
 		bcf		PIR1,TMR2IF			; Reset Timer 2 interrupt flag
 Xitisr:		retfie						; Exit ISR and resume main prog
-
-;==================================================================================
 
 		END
