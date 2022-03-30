@@ -48,3 +48,4 @@ WaitHigh:	btfss 		PIR1,TMR1IF
 		bra		WaitLow			
 		
 		END
+

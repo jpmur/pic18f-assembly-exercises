@@ -39,3 +39,4 @@ Tmr2isr:
 Xitisr:		retfie						; Exit ISR and resume main prog
 
 		END
+
